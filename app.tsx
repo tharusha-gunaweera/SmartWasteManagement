@@ -104,6 +104,7 @@ export default function App() {
       >
         {isAuthenticated ? (
           userAccessLevel === 3 ? (
+            // Waste Management Authority (Access Level 3)
             <Stack.Screen
               name="WasteManagementAuthority"
               component={WasteManagementAuthorityScreen}
@@ -113,6 +114,7 @@ export default function App() {
               }}
             />
           ) : userAccessLevel === 2 ? (
+            // Driver (Access Level 2)
             <Stack.Screen
               name="DriverDashboard"
               component={DriverDashboardScreen}
@@ -122,6 +124,7 @@ export default function App() {
               }}
             />
           ) : (
+            // Regular User (Access Level 1)
             <Stack.Screen
               name="Dashboard"
               component={UserTabNavigator}
@@ -131,6 +134,7 @@ export default function App() {
             />
           )
         ) : (
+          // Unauthenticated users
           <>
             <Stack.Screen
               name="Welcome"
@@ -142,11 +146,15 @@ export default function App() {
           </>
         )}
         
-        {/* Additional screens */}
+        {/* Additional screens for navigation from within the app */}
         <Stack.Screen name="MyBuckets" component={MyBucketsScreen} options={{ title: 'My Buckets' }} />
         <Stack.Screen name="Profile" component={ProfileScreen} options={{ title: 'Profile' }} />
         <Stack.Screen name="Map" component={Map} options={{ title: 'Bin Map' }} />
         <Stack.Screen name="AdminDashboard" component={AdminDashboardScreen} options={{ title: 'Admin Dashboard' }} />
+        
+        {/* Remove duplicate WasteManagementAuthority screen from here */}
+        
+        {/* Backup/alternative screens */}
         <Stack.Screen name="DriverDashboard2" component={DriverDashboardScreen} options={{ title: 'Driver Dashboard' }} />
         <Stack.Screen name="SignIn" component={SignInScreen} options={{ title: 'Sign In' }} />
         <Stack.Screen name="SignUp" component={SignUpScreen} options={{ title: 'Create Account' }} />

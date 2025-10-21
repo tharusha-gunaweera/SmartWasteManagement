@@ -30,7 +30,7 @@ const BucketReportScreen: React.FC<Props> = ({ navigation }) => {
   const [loading, setLoading] = useState(true);
   const [submittedRequests, setSubmittedRequests] = useState<Set<string>>(new Set());
 
-  const bucketService = new BucketService();
+  const bucketService = BucketService.getInstance();
   const authService = new AuthService();
   const currentUser = authService.getCurrentUser();
 

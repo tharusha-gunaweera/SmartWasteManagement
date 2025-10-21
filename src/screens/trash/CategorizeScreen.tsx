@@ -2,8 +2,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { StackNavigationProp } from '@react-navigation/stack';
 import React, { useEffect, useState } from 'react';
 import {
-  ActivityIndicator 
-  ,
+  ActivityIndicator,
+
   Alert,
   FlatList,
   Modal,
@@ -42,7 +42,7 @@ const CategorizeScreen: React.FC<Props> = ({ navigation }) => {
   const [addingTrash, setAddingTrash] = useState(false);
 
   const trashService = new TrashService();
-  const bucketService = new BucketService();
+  const bucketService = BucketService.getInstance();
   const authService = new AuthService();
   const currentUser = authService.getCurrentUser();
 
